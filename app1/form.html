@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    form{
+      border: 1px solid red;
+    }
+    table{
+      width: 500px;
+      min-height: 400px;
+      border: 1px solid #ccc;
+      border-collapse: collapse;
+    }
+    table td{
+      border: 1px solid #ccc;
+    }
+    #sub,#set{
+      text-align: right;
+    }
+    
+    
+
+  </style>
+</head>
+<body>
+    <form onsubmit="return isOk()">
+        <table>
+          <caption>在线留言</caption>
+          <tr>
+            <td>姓名：</td>
+            <td>
+              <input type="text" id="name">
+            </td>  
+          </tr>
+
+          <tr>
+              <td>QQ：</td>
+              <td>
+                <input type="text" id="QQ">
+              </td>  
+          </tr>
+          
+          <tr>
+              <td>手机号：</td>
+              <td>
+                <input type="text" id="tel">
+              </td>  
+          </tr>
+          
+          <tr>
+              <td>内容：</td>
+              <td>
+                <textarea name="" id="content" cols="30" rows="10" style="resize:none"></textarea>
+              </td>  
+            </tr>
+
+            <tr>
+              <td colspan="2" style="text-align: right">
+                <input type="submit" value="提交" id="sub">
+                <input type="reset" id="set">
+              </td>
+            </tr>
+        </table>
+      </form>
+</body>
+<script>
+  var qq=/^[1-9][0-9]*$/;
+  var Tel=/^((\(\d{3}\))|(\d{3}\-))?(\(0\d{2,3}\)|0\d{2,3}-)?[1-9]\d{6,7}$/;
+  
+  function isOk(){
+    var name=document.getElementById("name");
+    var tel=document.getElementById("tel");
+    var QQ=document.getElementById("QQ");
+    var sub=document.getElementById("sub");
+    var set=document.getElementById("set");
+    
+        
+        if(name.value===NaN||name.value==""){
+          alert("请重新输入姓名");
+          return false;
+        }
+        if(!QQ.value,match(qq)){
+          alert("请重新输入QQ号");
+          return false;
+        }
+        
+     
+        if(!tel.value.match(Tel)){
+          alert("请重新输入手机号");
+          return false;
+        }
+        return true;
+      
+    
+  }  
+
+
+</script>
+</html>
